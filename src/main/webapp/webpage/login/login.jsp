@@ -50,10 +50,8 @@
         <div class="login-container">
           <div class="center">
             <h1 id="id-text2" class="grey">
-              <i class="ace-icon fa fa-leaf green"></i>
-               JEECG 演示系统
+              <t:mutiLang langKey="jeect.platform"/>
             </h1>
-            <h4 class="blue" id="id-company-text">www.jeecg.org</h4>
           </div>
           <div class="space-6"></div>
           <div class="position-relative">
@@ -102,19 +100,9 @@
                       <div class="space-4"></div>
 
                 </div>
-                <div class="toolbar clearfix">
-                  <div style="float: right">
-                    <a href="#"  class="forgot-password-link">
-                    	  语言
-                      <i class="ace-icon fa fa-arrow-right"></i>
-                      <t:dictSelect id="langCode" field="langCode" typeGroupCode="lang" hasLabel="false" extendJson="{style:'padding:2px; width:80px;'}" defaultVal="zh-cn"></t:dictSelect>
-                    </a>
-                  </div>
-                </div>
                 </form>
               </div>
             </div>
-            <div class="center"><h4 class="blue" id="id-company-text">&copy; JEECG版权所有 v_3.7</h4></div>
             <div class="navbar-fixed-top align-right">
               <br />
               &nbsp;

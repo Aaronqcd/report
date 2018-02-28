@@ -16,9 +16,6 @@
 
     <title><t:mutiLang langKey="jeect.platform"/></title>
 
-    <meta name="keywords" content="JEECG,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="JEECG是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
-
     <link rel="shortcut icon" href="images/favicon.ico">
     <link href="plug-in-ui/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="plug-in-ui/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
@@ -460,7 +457,7 @@
 <!-- 弹出TAB -->
 <script type="text/javascript" src="plug-in/hplus/hplus-tab.js"></script>
 <!-- 在线聊天 -->
-<%@include file="/context/layui.jsp"%>
+<%--<%@include file="/context/layui.jsp"%>--%>
 <script>
     function logout(){
         /*bootbox.confirm("<t:mutiLang langKey="common.exit.confirm"/>", function(result) {
