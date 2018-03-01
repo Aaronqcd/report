@@ -10,10 +10,62 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2018-02-28 16:35:56
+Date: 2018-03-01 15:00:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for bldg
+-- ----------------------------
+DROP TABLE IF EXISTS `bldg`;
+CREATE TABLE `bldg` (
+  `id` varchar(36) NOT NULL COMMENT '主键',
+  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
+  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
+  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
+  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
+  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
+  `sys_org_code` varchar(50) DEFAULT NULL COMMENT '所属部门',
+  `sys_company_code` varchar(50) DEFAULT NULL COMMENT '所属公司',
+  `bpm_status` varchar(32) DEFAULT '1' COMMENT '流程状态',
+  `lybh` varchar(36) DEFAULT NULL COMMENT '楼宇编号',
+  `lymc` varchar(100) DEFAULT NULL COMMENT '楼宇名称',
+  `kfgsmc` varchar(100) DEFAULT NULL COMMENT '开发公司名称',
+  `wygsbm` varchar(36) DEFAULT NULL COMMENT '物业公司编码',
+  `ywhbh` varchar(36) DEFAULT NULL COMMENT '业委会编号',
+  `xqbh` varchar(36) DEFAULT NULL COMMENT '小区编号',
+  `ywhmc` varchar(100) DEFAULT NULL COMMENT '业委会名称',
+  `wygsmc` varchar(100) DEFAULT NULL COMMENT '物业公司名称',
+  `xqmc` varchar(100) DEFAULT NULL COMMENT '小区名称',
+  `kfgsbm` varchar(36) DEFAULT NULL COMMENT '开发公司编码',
+  `lyjgbm` varchar(36) DEFAULT NULL COMMENT '楼宇竣工编码',
+  `lydz` varchar(100) DEFAULT NULL COMMENT '楼宇地址',
+  `fwlxbm` varchar(36) DEFAULT NULL COMMENT '房屋类型编码',
+  `fwxz` varchar(100) DEFAULT NULL COMMENT '房屋性质',
+  `dys` int(3) DEFAULT NULL COMMENT '单元数',
+  `fwxzbm` varchar(36) DEFAULT NULL COMMENT '房屋性质编码',
+  `zzj` double(10,2) DEFAULT NULL COMMENT '总造价',
+  `gjdmc` varchar(100) DEFAULT NULL COMMENT '归集点名称',
+  `fwlx` varchar(100) DEFAULT NULL COMMENT '房屋类型',
+  `cs` int(3) DEFAULT NULL COMMENT '层数',
+  `gjdbm` varchar(36) DEFAULT NULL COMMENT '归集点编码',
+  `lh` int(3) DEFAULT NULL COMMENT '楼号',
+  `yfdt` int(1) DEFAULT NULL COMMENT '有否电梯',
+  `lybhcqkey` varchar(36) DEFAULT NULL COMMENT '产权系统中楼宇编号',
+  `ldj` double(10,2) DEFAULT NULL COMMENT '拟定单价',
+  `cjh` varchar(32) DEFAULT NULL COMMENT '产籍号',
+  `jgsj` datetime DEFAULT NULL COMMENT '竣工时间',
+  `zjzmj` double(10,2) DEFAULT NULL COMMENT '总建筑面积',
+  `lyjg` varchar(100) DEFAULT NULL COMMENT '楼宇竣工',
+  `synx` int(3) DEFAULT NULL COMMENT '使用年限',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bldg
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for bm_b003
@@ -493,6 +545,104 @@ INSERT INTO `cgform_field` VALUES ('402884b961db377e0161db8c5aa80018', '归集�
 INSERT INTO `cgform_field` VALUES ('402884b961db377e0161db8c5aa90019', '归集点编码', 'admin', '2018-02-28 16:34:24', '管理员', '', '', '', '', '', '120', 'gjdbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'gjdbm', '21', '0', 'single', 'text', 'string', null, null, null, '402884b961db377e0161db8c5a4c0004', '');
 INSERT INTO `cgform_field` VALUES ('402884b961db377e0161db8c5aaa001a', '物业公司编码', 'admin', '2018-02-28 16:34:24', '管理员', '', '', '', '', '', '120', 'wygsbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'wygsbm', '22', '0', 'single', 'text', 'string', null, null, null, '402884b961db377e0161db8c5a4c0004', '');
 INSERT INTO `cgform_field` VALUES ('402884b961db377e0161db8c5aab001b', '物业公司名称', 'admin', '2018-02-28 16:34:24', '管理员', '', '', '', '', '', '120', 'wygsmc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'wygsmc', '23', '0', 'single', 'text', 'string', null, null, null, '402884b961db377e0161db8c5a4c0004', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35c70002', '主键', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'id', '', 'N', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35c70003', '创建人名称', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'create_name', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'create_name', '2', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35c80004', '创建人登录名称', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'create_by', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'create_by', '3', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35c80005', '创建日期', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'create_date', '', 'N', 'N', 'Y', 'N', 'N', 'N', '20', '', '', 'create_date', '4', '0', 'single', 'date', 'Date', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35c80006', '更新人名称', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'update_name', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'update_name', '5', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35c90007', '更新人登录名称', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'update_by', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'update_by', '6', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35cc0008', '更新日期', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'update_date', '', 'N', 'N', 'Y', 'N', 'N', 'N', '20', '', '', 'update_date', '7', '0', 'single', 'date', 'Date', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35cd0009', '所属部门', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'sys_org_code', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'sys_org_code', '8', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35cd000a', '所属公司', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'sys_company_code', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'sys_company_code', '9', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35cd000b', '流程状态', 'admin', '2018-03-01 09:47:31', '管理员', 'bpm_status', '', '', '1', '', '120', 'bpm_status', '', 'N', 'N', 'Y', 'N', 'N', 'Y', '32', '', '', 'bpm_status', '10', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35ce000c', '楼宇编号', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'lybh', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'lybh', '11', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df3e35ce000d', '楼宇名称', 'admin', '2018-03-01 09:47:31', '管理员', '', '', '', '', '', '120', 'lymc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'lymc', '12', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df416540000f', '小区编号', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'xqbh', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'xqbh', '13', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165410010', '小区名称', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'xqmc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'xqmc', '14', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165410011', '业委会编号', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'ywhbh', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'ywhbh', '15', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165410012', '业委会名称', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'ywhmc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'ywhmc', '16', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165410013', '物业公司编码', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'wygsbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'wygsbm', '17', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165420014', '物业公司名称', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'wygsmc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'wygsmc', '18', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165420015', '开发公司编码', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'kfgsbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'kfgsbm', '19', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4165420016', '开发公司名称', 'admin', '2018-03-01 09:51:00', '管理员', '', '', '', '', '', '120', 'kfgsmc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'kfgsmc', '20', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2b80018', '楼宇地址', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'lydz', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'lydz', '21', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2b80019', '总建筑面积', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'zjzmj', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'zjzmj', '22', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2b9001a', '层数', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'cs', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '3', '', '', 'cs', '23', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2b9001b', '单元数', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'dys', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '3', '', '', 'dys', '24', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2b9001c', '竣工时间', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'jgsj', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '20', '', '', 'jgsj', '25', '0', 'single', 'text', 'Date', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2ba001d', '使用年限', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'synx', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '3', '', '', 'synx', '26', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2ba001e', '有否电梯', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'yfdt', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '1', '', '', 'yfdt', '27', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bb001f', '总造价', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'zzj', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'zzj', '28', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bb0020', '楼号', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'lh', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '3', '', '', 'lh', '29', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bc0021', '房屋类型编码', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'fwlxbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'fwlxbm', '30', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bc0022', '房屋类型', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'fwlx', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'fwlx', '31', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bc0023', '楼宇竣工编码', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'lyjgbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'lyjgbm', '32', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bd0024', '楼宇竣工', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'lyjg', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'lyjg', '33', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2bd0025', '归集点编码', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'gjdbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'gjdbm', '34', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2be0026', '归集点名称', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'gjdmc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'gjdmc', '35', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2be0027', '拟定单价', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'ldj', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'ldj', '36', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2be0028', '产籍号', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'cjh', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '32', '', '', 'cjh', '37', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2dc0029', '产权系统中楼宇编号', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'lybhcqkey', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'lybhcqkey', '38', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2dd002a', '房屋性质编码', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'fwxzbm', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'fwxzbm', '39', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df4fd2dd002b', '房屋性质', 'admin', '2018-03-01 10:06:45', '管理员', '', '', '', '', '', '120', 'fwxz', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'fwxz', '40', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df3e35c40001', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a684002e', '主键', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'id', '', 'N', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a685002f', '流程状态', 'admin', '2018-03-01 10:07:40', '管理员', 'bpm_status', '', '', '1', '', '120', 'bpm_status', '', 'N', 'N', 'Y', 'N', 'N', 'Y', '32', '', '', 'bpm_status', '2', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6850030', '创建人名称', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'create_name', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'create_name', '3', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6850031', '创建人登录名称', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'create_by', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'create_by', '4', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6850032', '更新人名称', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'update_name', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'update_name', '5', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6850033', '更新人登录名称', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'update_by', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'update_by', '6', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6860034', '所属部门', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'sys_org_code', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'sys_org_code', '7', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6860035', '所属公司', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'sys_company_code', '', 'N', 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'sys_company_code', '8', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6860036', '创建日期', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'create_date', '', 'N', 'N', 'Y', 'N', 'N', 'N', '20', '', '', 'create_date', '9', '0', 'single', 'date', 'Date', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161df50a6860037', '更新日期', 'admin', '2018-03-01 10:07:40', '管理员', '', '', '', '', '', '120', 'update_date', '', 'N', 'N', 'Y', 'N', 'N', 'N', '20', '', '', 'update_date', '10', '0', 'single', 'date', 'Date', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5a003b', '房屋编号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h001', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h001', '11', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5b003c', '楼宇编号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'lybh', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'lybh', '12', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5b003d', '楼宇名称', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'lymc', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'lymc', '13', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5b003e', '单元', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h002', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '3', '', '', 'h002', '14', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5c003f', '层号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h003', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '3', '', '', 'h003', '15', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5d0040', '串号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h004', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '32', '', '', 'h004', '16', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5d0041', '房号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h005', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '32', '', '', 'h005', '17', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5e0042', '建筑面积', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h006', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h006', '18', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5e0043', '使用面积', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h007', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h007', '19', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5e0044', '公摊面积', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h008', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h008', '20', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5e0045', '单价', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h009', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h009', '21', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5e0046', '总价', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h010', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h010', '22', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5e0047', '房屋性质编码', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h011', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h011', '23', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5f0048', '房屋性质', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h012', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h012', '24', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5f0049', '产权人', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h013', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '20', '', '', 'h013', '25', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5f004a', '产权单位', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h014', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h014', '26', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5f004b', '身份证号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h015', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '18', '', '', 'h015', '27', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d5f004c', '产权编号', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h016', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h016', '28', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d60004d', '房屋类型编码', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h017', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h017', '29', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d60004e', '房屋类型', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h018', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h018', '30', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d60004f', '联系方式', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h019', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '11', '', '', 'h019', '31', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d600050', '购房日期', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h020', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '20', '', '', 'h020', '32', '0', 'single', 'text', 'Date', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161dff23d600051', '应缴资金', 'admin', '2018-03-01 13:04:10', '管理员', '', '', '', '', '', '120', 'h021', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h021', '33', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e02a0b380054', '业主缴存标准编码', 'admin', '2018-03-01 14:05:07', '管理员', '', '', '', '', '', '120', 'h022', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h022', '34', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e02a0b380055', '业主缴存标准', 'admin', '2018-03-01 14:05:07', '管理员', '', '', '', '', '', '120', 'h023', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h023', '35', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac500058', '年初本金', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h024', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h024', '36', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac500059', '年初利息', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h025', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h025', '37', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac50005a', '本年发生额', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h026', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h026', '38', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac51005b', '业主首次本金', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h027', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h027', '39', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac51005c', '单位首次本金', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h028', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h028', '40', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac51005d', '支取利息', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h029', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h029', '41', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac51005e', '可用本金', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h030', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h030', '42', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac51005f', '可用利息', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h031', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h031', '43', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac510060', '户型编码', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h032', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h032', '44', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e054ac520061', '户型', 'admin', '2018-03-01 14:51:41', '管理员', '', '', '', '', '', '120', 'h033', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h033', '45', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a120063', '本年利息', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h034', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h034', '46', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a120064', '房屋状态', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h035', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '1', '', '', 'h035', '47', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a120065', '是否打印通知书', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h036', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '1', '', '', 'h036', '48', '0', 'single', 'text', 'int', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a120066', '单位缴存标准', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h037', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h037', '49', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a130067', '当前应缴额', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h038', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h038', '50', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a130068', '个人应缴额', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h039', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h039', '51', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a130069', '合同号', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h040', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h040', '52', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a13006a', '累缴纳本金', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h041', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h041', '53', '2', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a13006b', '累计利息', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h042', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h042', '54', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a13006c', '单位个人缴存比', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h043', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h043', '55', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a14006d', '房屋用途编码', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h044', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '36', '', '', 'h044', '56', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a14006e', '房屋用途名称', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h045', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '100', '', '', 'h045', '57', '0', 'single', 'text', 'string', null, null, null, '402884b961df38a70161df50a684002d', '');
+INSERT INTO `cgform_field` VALUES ('402884b961df38a70161e05b7a14006f', '最近利息', 'admin', '2018-03-01 14:59:06', '管理员', '', '', '', '', '', '120', 'h046', '', 'N', 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', 'h046', '58', '5', 'single', 'text', 'double', null, null, null, '402884b961df38a70161df50a684002d', '');
 INSERT INTO `cgform_field` VALUES ('402885d8506e5d9201506e72f4950002', '主键', 'admin', '2015-10-16 10:20:39', '管理员', '', '', '', '', '', '120', 'id', '', null, 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '402885d8506e5d9201506e72f4920001', '');
 INSERT INTO `cgform_field` VALUES ('402885d8506e5d9201506e72f4a80003', '创建人名称', 'admin', '2015-10-16 10:20:39', '管理员', '', '', '', '', '', '120', 'create_name', '', null, 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'create_name', '2', '0', 'single', 'text', 'string', null, null, null, '402885d8506e5d9201506e72f4920001', '');
 INSERT INTO `cgform_field` VALUES ('402885d8506e5d9201506e72f4ab0004', '创建人登录名称', 'admin', '2015-10-16 10:20:39', '管理员', '', '', '', '', '', '120', 'create_by', '', null, 'N', 'Y', 'N', 'N', 'N', '50', '', '', 'create_by', '3', '0', 'single', 'text', 'string', null, null, null, '402885d8506e5d9201506e72f4920001', '');
@@ -706,6 +856,8 @@ INSERT INTO `cgform_head` VALUES ('402881e4534c0aea01534c0cfca50012', '工作信
 INSERT INTO `cgform_head` VALUES ('402881e4534c0aea01534c0cfe2b001b', '教育经历', 'admin', '2016-03-06 21:10:33', '管理员', 'Y', 'Y', 'Y', 'N', '', 'UUID', '3', '7', 'group', '0', null, null, 'jform_resume_degree_info', 'admin', '2016-05-07 16:30:05', '管理员', null, 'id', null, 'bdfl_ptbd', '', '', null, null, null);
 INSERT INTO `cgform_head` VALUES ('40288388506b3aa601506b67e97b0002', '客户资料管理', 'admin', '2015-10-15 20:09:44', '管理员', 'Y', 'Y', 'Y', 'N', '', 'UUID', '1', '6', 'single', '0', null, null, 'jeecg_custom_info', 'admin', '2016-03-15 11:40:53', '管理员', null, 'id', null, 'bdfl_ptbd', 'olstyle00002', '', null, null, null);
 INSERT INTO `cgform_head` VALUES ('402884b961db377e0161db8c5a4c0004', '小区信息表', 'admin', '2018-02-28 16:34:23', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '2', '1', 'group', '0', null, null, 'bm_b003', 'admin', '2018-02-28 16:34:31', '管理员', null, 'id', null, 'bdfl_ptbd', 'ledefault', 'ledefault', '', null, null);
+INSERT INTO `cgform_head` VALUES ('402884b961df38a70161df3e35c40001', '楼宇表', 'admin', '2018-03-01 09:47:31', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '2', '3', 'group', '0', null, null, 'bldg', 'admin', '2018-03-01 10:06:53', '管理员', null, 'id', null, 'bdfl_ptbd', 'ledefault', 'ledefault', '', null, null);
+INSERT INTO `cgform_head` VALUES ('402884b961df38a70161df50a684002d', '房屋信息', 'admin', '2018-03-01 10:07:40', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '2', '5', 'group', '0', null, null, 'house', 'admin', '2018-03-01 14:59:17', '管理员', null, 'id', null, 'bdfl_ptbd', 'ledefault', 'ledefault', '', null, null);
 INSERT INTO `cgform_head` VALUES ('402885d8506e5d9201506e72f4920001', '客户跟踪记录表', 'admin', '2015-10-16 10:20:39', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '1', '43', 'single', '0', null, null, 'jeecg_custom_record', 'admin', '2016-02-25 11:32:02', '管理员', null, 'id', null, 'bdfl_ptbd', 'olstyle00001', null, null, null, null);
 INSERT INTO `cgform_head` VALUES ('4028ab775afa555c015afa5958660007', '入职员工', 'admin', '2017-03-23 16:47:23', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '1', '46', 'single', '0', null, null, 'test_person', 'admin', '2017-04-19 17:56:10', '管理员', null, 'id', null, 'bdfl_ptbd', 'ledefault', '', '', null, null);
 INSERT INTO `cgform_head` VALUES ('4028b881535b12bd01535b1ae3680001', '个人通讯录', 'admin', '2016-03-09 19:20:02', '管理员', 'Y', 'Y', 'Y', 'N', '', 'UUID', '1', '60', 'group', '0', 't_s_contact', null, 'jform_contact', 'admin', '2017-03-04 22:04:07', '管理员', null, 'id', null, 'bdfl_ptbd', '', '', '', null, null);
@@ -818,6 +970,76 @@ INSERT INTO `cgform_uploadfiles` VALUES ('FILE_STR', '402881855ad7918f015ad79962
 INSERT INTO `cgform_uploadfiles` VALUES ('name', '4028ef815382d0af015382d780440002', 'test_student', '4028ef8153cf9d710153cfa38ea10010');
 INSERT INTO `cgform_uploadfiles` VALUES ('name', '4028ef8153cf9d710153cfa4a4fd0011', 'test_student', '4028ef8153cf9d710153cfa4a5cc0013');
 INSERT INTO `cgform_uploadfiles` VALUES ('filename2', '4028ef815509d9db015509e142860001', 'test_file', '4028ef815509d842015509e143280004');
+
+-- ----------------------------
+-- Table structure for house
+-- ----------------------------
+DROP TABLE IF EXISTS `house`;
+CREATE TABLE `house` (
+  `id` varchar(36) NOT NULL COMMENT '主键',
+  `bpm_status` varchar(32) DEFAULT '1' COMMENT '流程状态',
+  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
+  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
+  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
+  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
+  `sys_org_code` varchar(50) DEFAULT NULL COMMENT '所属部门',
+  `sys_company_code` varchar(50) DEFAULT NULL COMMENT '所属公司',
+  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
+  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
+  `h019` varchar(11) DEFAULT NULL COMMENT '联系方式',
+  `h013` varchar(20) DEFAULT NULL COMMENT '产权人',
+  `h014` varchar(100) DEFAULT NULL COMMENT '产权单位',
+  `h011` varchar(36) DEFAULT NULL COMMENT '房屋性质编码',
+  `lymc` varchar(100) DEFAULT NULL COMMENT '楼宇名称',
+  `h012` varchar(100) DEFAULT NULL COMMENT '房屋性质',
+  `h017` varchar(36) DEFAULT NULL COMMENT '房屋类型编码',
+  `h018` varchar(100) DEFAULT NULL COMMENT '房屋类型',
+  `h015` varchar(18) DEFAULT NULL COMMENT '身份证号',
+  `h016` varchar(36) DEFAULT NULL COMMENT '产权编号',
+  `h010` double(10,2) DEFAULT NULL COMMENT '总价',
+  `h021` double(10,2) DEFAULT NULL COMMENT '应缴资金',
+  `h020` datetime DEFAULT NULL COMMENT '购房日期',
+  `h009` double(10,2) DEFAULT NULL COMMENT '单价',
+  `h008` double(10,2) DEFAULT NULL COMMENT '公摊面积',
+  `h001` varchar(36) DEFAULT NULL COMMENT '房屋编号',
+  `h002` int(3) DEFAULT NULL COMMENT '单元',
+  `h003` int(3) DEFAULT NULL COMMENT '层号',
+  `h004` varchar(32) DEFAULT NULL COMMENT '串号',
+  `h005` varchar(32) DEFAULT NULL COMMENT '房号',
+  `lybh` varchar(36) DEFAULT NULL COMMENT '楼宇编号',
+  `h006` double(10,2) DEFAULT NULL COMMENT '建筑面积',
+  `h007` double(10,2) DEFAULT NULL COMMENT '使用面积',
+  `h030` double(10,2) DEFAULT NULL COMMENT '可用本金',
+  `h032` varchar(36) DEFAULT NULL COMMENT '户型编码',
+  `h031` double(10,5) DEFAULT NULL COMMENT '可用利息',
+  `h038` double(10,2) DEFAULT NULL COMMENT '当前应缴额',
+  `h037` varchar(100) DEFAULT NULL COMMENT '单位缴存标准',
+  `h039` double(10,2) DEFAULT NULL COMMENT '个人应缴额',
+  `h034` double(10,5) DEFAULT NULL COMMENT '本年利息',
+  `h033` varchar(100) DEFAULT NULL COMMENT '户型',
+  `h036` int(1) DEFAULT NULL COMMENT '是否打印通知书',
+  `h035` int(1) DEFAULT NULL COMMENT '房屋状态',
+  `h029` double(10,5) DEFAULT NULL COMMENT '支取利息',
+  `h028` double(10,2) DEFAULT NULL COMMENT '单位首次本金',
+  `h027` double(10,2) DEFAULT NULL COMMENT '业主首次本金',
+  `h026` double(10,2) DEFAULT NULL COMMENT '本年发生额',
+  `h025` double(10,5) DEFAULT NULL COMMENT '年初利息',
+  `h024` double(10,2) DEFAULT NULL COMMENT '年初本金',
+  `h023` varchar(100) DEFAULT NULL COMMENT '业主缴存标准',
+  `h022` varchar(36) DEFAULT NULL COMMENT '业主缴存标准编码',
+  `h043` double(10,5) DEFAULT NULL COMMENT '单位个人缴存比',
+  `h042` double(10,5) DEFAULT NULL COMMENT '累计利息',
+  `h041` double(10,2) DEFAULT NULL COMMENT '累缴纳本金',
+  `h040` varchar(36) DEFAULT NULL COMMENT '合同号',
+  `h046` double(10,5) DEFAULT NULL COMMENT '最近利息',
+  `h045` varchar(100) DEFAULT NULL COMMENT '房屋用途名称',
+  `h044` varchar(36) DEFAULT NULL COMMENT '房屋用途编码',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of house
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jeecg_custom_info
@@ -5243,6 +5465,19 @@ INSERT INTO `t_s_log` VALUES ('402884b961db377e0161db44509e0001', 'Chrome', 'adm
 INSERT INTO `t_s_log` VALUES ('402884b961db377e0161db446a600002', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-02-28 15:15:49', '1', '8a8ab0b246dc81120146dc8181950052');
 INSERT INTO `t_s_log` VALUES ('402884b961db377e0161db60d70b0003', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-02-28 15:46:52', '1', '8a8ab0b246dc81120146dc8181950052');
 INSERT INTO `t_s_log` VALUES ('402884b961db377e0161db8c5d07001c', 'Chrome', '创建成功', '3', '192.168.4.57', '2018-02-28 16:34:24', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161df3c35380000', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-03-01 09:45:20', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161df3e364c000e', 'Chrome', '创建成功', '3', '192.168.4.57', '2018-03-01 09:47:31', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161df4165d90017', 'Chrome', '修改成功', '5', '192.168.4.57', '2018-03-01 09:51:00', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161df4fd3c1002c', 'Chrome', '修改成功', '5', '192.168.4.57', '2018-03-01 10:06:46', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161df50a77e0038', 'Chrome', '创建成功', '3', '192.168.4.57', '2018-03-01 10:07:40', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161df99bd070039', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-03-01 11:27:30', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161dfe95f40003a', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-03-01 12:54:28', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161dff23e300052', 'Chrome', '修改成功', '5', '192.168.4.57', '2018-03-01 13:04:10', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161e028dcbf0053', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-03-01 14:03:49', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161e02a0b5f0056', 'Chrome', '修改成功', '5', '192.168.4.57', '2018-03-01 14:05:07', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161e05049590057', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.4.57', '2018-03-01 14:46:53', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161e054ada90062', 'Chrome', '修改成功', '5', '192.168.4.57', '2018-03-01 14:51:41', '1', '8a8ab0b246dc81120146dc8181950052');
+INSERT INTO `t_s_log` VALUES ('402884b961df38a70161e05b7ac30070', 'Chrome', '修改成功', '5', '192.168.4.57', '2018-03-01 14:59:07', '1', '8a8ab0b246dc81120146dc8181950052');
 INSERT INTO `t_s_log` VALUES ('4028ab775a3f7e02015a3f7e5c820000', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.43.247', '2017-02-15 09:58:50', '1', '8a8ab0b246dc81120146dc8181950052');
 INSERT INTO `t_s_log` VALUES ('4028ab775a3f7e02015a3f90f6e50001', 'Chrome', '用户admin已退出', '2', '192.168.43.247', '2017-02-15 10:19:09', '1', '8a8ab0b246dc81120146dc8181950052');
 INSERT INTO `t_s_log` VALUES ('4028ab775a3f7e02015a3f917c2b0002', 'Chrome', '用户: admin[JEECG开源社区]common.login.success', '1', '192.168.43.247', '2017-02-15 10:19:43', '1', '8a8ab0b246dc81120146dc8181950052');
