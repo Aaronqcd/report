@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
-<t:base type="jquery,easyui,tools,DatePicker"></t:base>
+<t:base type="jquery,easyui,tools,DatePicker,selector"></t:base>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:0px;border:0px">
   <t:datagrid name="bmB003List" checkbox="false" pagination="true" fitColumns="false" title="小区信息表" actionUrl="bmB003Controller.do?datagrid" idField="id" fit="true" queryMode="group">
@@ -36,6 +36,7 @@
    <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar>
    <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
    <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
+      <t:dgToolBar title="字段配置" icon="icon-gear" funname="fieldConfig"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>
@@ -44,7 +45,31 @@
  $(document).ready(function(){
  });
  
-   
+   function fieldConfig() {
+       //var selected = $("#ID").textbox("getValue");
+       var single = true;
+
+       var dia = $.easyui.showSelector.dblDatagrid({
+           title: "测试选择",
+           width: 600,
+           height: 400,
+           onEnter: function (row) {
+               fill(row);
+           },
+           extToolbar: false,
+           //selected: selected,
+           datagridOptions: {
+               singleSelect: single,
+               method: "get",
+               url: "datagrid-selector-data.json",
+               idField: 'ID',
+               columns: [[
+                   { field: 'ID', title: '工号', width: 90 },
+                   { field: 'RealName', title: '姓名', width: 90 }
+               ]]
+           }
+       });
+   }
  
 //导入
 function ImportXls() {

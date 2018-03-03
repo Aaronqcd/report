@@ -1,0 +1,20 @@
+﻿[
+    { "ID": 1, "RealName": "张一", "OrganID": 1 },
+    { "ID": 2, "RealName": "张二", "OrganID": 1 },
+    { "ID": 3, "RealName": "张三", "OrganID": 1 },
+    { "ID": 4, "RealName": "李一", "OrganID": 2 },
+    { "ID": 5, "RealName": "李二", "OrganID": 2 },
+    { "ID": 6, "RealName": "李三", "OrganID": 2 },
+    { "ID": 7, "RealName": "王一", "OrganID": 3 },
+    { "ID": 8, "RealName": "王二", "OrganID": 3 },
+    { "ID": 9, "RealName": "王三", "OrganID": 3},
+    { "ID": 10, "RealName": "刘一", "OrganID": 11 },
+    { "ID": 11, "RealName": "刘二", "OrganID": 11 },
+    { "ID": 12, "RealName": "刘三", "OrganID": 11 },
+    { "ID": 13, "RealName": "白一", "OrganID": 12 },
+    { "ID": 14, "RealName": "白二", "OrganID": 12 },
+    { "ID": 15, "RealName": "白三", "OrganID": 12 },
+    { "ID": 16, "RealName": "白四", "OrganID": 13 },
+    { "ID": 17, "RealName": "白五", "OrganID": 13 },
+    { "ID": 18, "RealName": "白六", "OrganID": 13 }
+]
