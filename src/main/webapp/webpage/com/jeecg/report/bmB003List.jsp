@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
 <t:base type="jquery,easyui,tools,DatePicker,selector"></t:base>
+<style>
+    .ui_content {
+        width: 100%;
+    }
+</style>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:0px;border:0px">
   <t:datagrid name="bmB003List" checkbox="false" pagination="true" fitColumns="false" title="小区信息表" actionUrl="bmB003Controller.do?datagrid" idField="id" fit="true" queryMode="group">
@@ -46,7 +51,7 @@
      //$("#demoform").hide();
      $('#fieldConfig').dialog({
          title: 'My Dialog',
-         width: 800,
+         width: 1000,
          height: 600,
          closed: false,
          cache: false,

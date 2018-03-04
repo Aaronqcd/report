@@ -6,6 +6,14 @@
     <script src="${webRoot}/plug-in-ui/hplus/js/jquery.min.js?v=2.1.4"></script>
     <script src="${webRoot}/plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="${webRoot}/plug-in/ace/js/jquery.bootstrap-duallistbox.js"></script>
+    <style>
+        .col-md-6 {
+            width: 50%;
+        }
+        .ui_content {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div>
