@@ -1,17 +1,15 @@
 package org.jeecgframework.tag.core.easyui;
 
-import java.io.IOException;
+import jodd.util.StringUtil;
+import org.jeecgframework.core.enums.SysThemesEnum;
+import org.jeecgframework.core.util.SysThemesUtil;
+import org.jeecgframework.core.util.oConvertUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
-
-import jodd.util.StringUtil;
-
-import org.jeecgframework.core.enums.SysThemesEnum;
-import org.jeecgframework.core.util.SysThemesUtil;
-import org.jeecgframework.core.util.oConvertUtils;
+import java.io.IOException;
 
 
 /**
@@ -85,6 +83,7 @@ public class BaseTag extends TagSupport {
                 
 			} else if (oConvertUtils.isIn("jquery", types)) {
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/jquery/jquery-1.8.3.js\"></script>");
+				//sb.append("<script type=\"text/javascript\" src=\"plug-in/jquery/jquery-1.11.0.min.js\"></script>");
 
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/jquery/jquery.cookie.js\" ></script>");
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/jquery-plugs/storage/jquery.storageapi.min.js\" ></script>");
@@ -107,6 +106,7 @@ public class BaseTag extends TagSupport {
 				sb.append("<link rel=\"stylesheet\" type=\"text/css\" href=\"plug-in/accordion/css/accordion.css\">");
 				sb.append("<link rel=\"stylesheet\" type=\"text/css\" href=\"plug-in/accordion/css/icons.css\">");
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/jquery.easyui.min.1.3.2.js\"></script>");
+				//sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/jquery.easyui.min.1.4.3.js\"></script>");
 
 //				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/locale/zh-cn.js\"></script>");
 				sb.append(StringUtil.replace("<script type=\"text/javascript\" src=\"plug-in/easyui/locale/{0}.js\"></script>", "{0}", lang)); 
@@ -213,11 +213,13 @@ public class BaseTag extends TagSupport {
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/ztree/js/jquery.ztree.excheck-3.5.min.js\"></script>");
 			}
 			if (oConvertUtils.isIn("selector", types)) {
-				sb.append("<link rel=\"stylesheet\" href=\"plug-in/easyui/extends/css/jeasyui.extensions.selector.css\" type=\"text/css\"></link>");
+				sb.append("<link rel=\"stylesheet\" href=\"plug-in/ace/css/bootstrap-duallistbox.css\" type=\"text/css\"></link>");
+				sb.append("<script type=\"text/javascript\" src=\"plug-in/ace/js/jquery.bootstrap-duallistbox.js\"></script>");
+				/*sb.append("<link rel=\"stylesheet\" href=\"plug-in/easyui/extends/css/jeasyui.extensions.selector.css\" type=\"text/css\"></link>");
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/extends/js/jquery.jdirk.js\"></script>");
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/extends/js/jeasyui.extensions.dialog.sealed.sample.js\"></script>");
 				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/extends/js/jeasyui.extensions.selector.base.js\"></script>");
-				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/extends/js/jeasyui.extensions.selector.dblDatagrid.js\"></script>");
+				sb.append("<script type=\"text/javascript\" src=\"plug-in/easyui/extends/js/jeasyui.extensions.selector.dblDatagrid.js\"></script>");*/
 			}
 			out.print(sb.toString());
 			out.flush();

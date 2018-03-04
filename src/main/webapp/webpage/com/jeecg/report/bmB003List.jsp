@@ -38,14 +38,34 @@
    <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
       <t:dgToolBar title="字段配置" icon="icon-gear" funname="fieldConfig"></t:dgToolBar>
   </t:datagrid>
+      <div id="fieldConfig">
+          1
+      </div>
   </div>
  </div>
  <script src = "webpage/com/jeecg/report/bmB003List.js"></script>		
  <script type="text/javascript">
  $(document).ready(function(){
+     //$("#demoform").hide();
+     $('#fieldConfig').dialog({
+         title: 'My Dialog',
+         width: 800,
+         height: 600,
+         closed: false,
+         cache: false,
+         //href: 'bmB003Controller.do?fieldConfig',
+         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%; display:block;'></iframe>",
+         modal: true
+     });
+     $('#fieldConfig').dialog('open');
+ });
+ var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+ $("#demoform").submit(function() {
+     alert($('[name="duallistbox_demo1[]"]').val());
+     return false;
  });
  
-   function fieldConfig() {
+   /*function fieldConfig() {
        //var selected = $("#ID").textbox("getValue");
        var single = true;
 
@@ -69,7 +89,37 @@
                ]]
            }
        });
-   }
+   }*/
+ function fieldConfig() {
+     //$("#demoform").show();
+     /*$("#fieldConfig").dialog({
+         title: '批量处理',
+         id:'batchProcessing',
+         width: 920,
+         height: 'auto',
+         top:300,
+         closed: false,
+         inline:false,
+         loadingMessage: '正在加载...',
+         cache: false,
+         href :'fieldConfig.jsp',
+         modal: true,
+         onClose : function() {
+             $(this).dialog('destroy');
+             mmg.load();
+         },
+     });*/
+     $('#fieldConfig').dialog({
+         title: 'My Dialog',
+         width: 400,
+         height: 200,
+         closed: false,
+         cache: false,
+         href: 'fieldConfig.jsp',
+         modal: true
+     });
+     $('#fieldConfig').dialog('refresh', 'fieldConfig.jsp');
+ }
  
 //导入
 function ImportXls() {

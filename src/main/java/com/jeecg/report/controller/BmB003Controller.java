@@ -100,6 +100,11 @@ public class BmB003Controller extends BaseController {
 		return new ModelAndView("com/jeecg/report/bmB003List");
 	}
 
+	@RequestMapping(params = "fieldConfig")
+	public ModelAndView fieldConfig(HttpServletRequest request) {
+		return new ModelAndView("com/jeecg/report/fieldConfig");
+	}
+
 	/**
 	 * easyui AJAX请求数据
 	 * 
