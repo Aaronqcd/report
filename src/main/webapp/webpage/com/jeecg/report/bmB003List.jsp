@@ -38,9 +38,6 @@
    <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
       <t:dgToolBar title="字段配置" icon="icon-gear" funname="fieldConfig"></t:dgToolBar>
   </t:datagrid>
-      <div id="fieldConfig">
-          1
-      </div>
   </div>
  </div>
  <script src = "webpage/com/jeecg/report/bmB003List.js"></script>		
@@ -109,16 +106,17 @@
              mmg.load();
          },
      });*/
-     $('#fieldConfig').dialog({
+     $(this).dialog({
          title: 'My Dialog',
-         width: 400,
-         height: 200,
+         width: 800,
+         height: 600,
          closed: false,
          cache: false,
-         href: 'fieldConfig.jsp',
+         //href: 'bmB003Controller.do?fieldConfig',
+         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%; display:block;'></iframe>",
          modal: true
      });
-     $('#fieldConfig').dialog('refresh', 'fieldConfig.jsp');
+     $(this).dialog('open');
  }
  
 //导入
