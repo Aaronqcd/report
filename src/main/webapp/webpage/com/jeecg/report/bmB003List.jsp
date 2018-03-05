@@ -49,17 +49,17 @@
  <script type="text/javascript">
  $(document).ready(function(){
      //$("#demoform").hide();
-     $('#fieldConfig').dialog({
+     /*$('#fieldConfig').dialog({
          title: 'My Dialog',
          width: 1000,
          height: 600,
          closed: false,
          cache: false,
          //href: 'bmB003Controller.do?fieldConfig',
-         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%; display:block;'></iframe>",
+         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%;'></iframe>",
          modal: true
      });
-     $('#fieldConfig').dialog('open');
+     $('#fieldConfig').dialog('open');*/
  });
  var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
  $("#demoform").submit(function() {
@@ -118,7 +118,7 @@
          closed: false,
          cache: false,
          //href: 'bmB003Controller.do?fieldConfig',
-         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%; display:block;'></iframe>",
+         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%;'></iframe>",
          modal: true
      });
      $(this).dialog('open');

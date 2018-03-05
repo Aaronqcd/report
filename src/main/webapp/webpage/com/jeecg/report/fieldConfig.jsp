@@ -9,10 +9,11 @@
     <style>
         .col-md-6 {
             width: 50%;
+            float: left;
         }
-        .ui_content {
+        /*.ui_content {
             width: 100%;
-        }
+        }*/
     </style>
 </head>
 <body>
@@ -35,6 +36,17 @@
         </form>
     </div>
     <script>
+        $(function () {
+            $(".ui_content").css("display", "block");
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/bmB003Controller.do?getTableColumn",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                }
+            });
+        });
         var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
         $("#demoform").submit(function() {
             alert($('[name="duallistbox_demo1[]"]').val());

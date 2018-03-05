@@ -1,5 +1,6 @@
 package com.jeecg.report.controller;
 import com.jeecg.report.entity.BmB003Entity;
+import com.jeecg.report.entity.FieldConfigEntity;
 import com.jeecg.report.service.BmB003ServiceI;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +105,17 @@ public class BmB003Controller extends BaseController {
 	public ModelAndView fieldConfig(HttpServletRequest request) {
 		return new ModelAndView("com/jeecg/report/fieldConfig");
 	}
+
+    @RequestMapping(params = "getTableColumn")
+    @ResponseBody
+    public AjaxJson getTableColumn(HttpServletRequest request) {
+	    List<FieldConfigEntity> fieldConfigEntities = systemService.findByProperty(FieldConfigEntity.class, "state", 1);
+        Map<String, Object> attributes = new HashMap<String, Object>();
+        attributes.put("field", fieldConfigEntities);
+        AjaxJson ajaxJson = new AjaxJson();
+        ajaxJson.setAttributes(attributes);
+	    return ajaxJson;
+    }
 
 	/**
 	 * easyui AJAX请求数据
