@@ -106,10 +106,16 @@ public class BmB003Controller extends BaseController {
 		return new ModelAndView("com/jeecg/report/fieldConfig");
 	}
 
+	/**
+	 * 获取field_config表中的所有数据
+	 * @param request
+	 * @return
+	 */
     @RequestMapping(params = "getTableColumn")
     @ResponseBody
     public AjaxJson getTableColumn(HttpServletRequest request) {
-	    List<FieldConfigEntity> fieldConfigEntities = systemService.findByProperty(FieldConfigEntity.class, "state", 1);
+	    //List<FieldConfigEntity> fieldConfigEntities = systemService.findByProperty(FieldConfigEntity.class, null, null);
+		List<FieldConfigEntity> fieldConfigEntities = systemService.loadAll(FieldConfigEntity.class);
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("field", fieldConfigEntities);
         AjaxJson ajaxJson = new AjaxJson();
@@ -118,12 +124,31 @@ public class BmB003Controller extends BaseController {
     }
 
 	/**
+	 * 批量设置field_config表中数据的启用和未启用状态
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(params = "updateFieldConfig")
+	@ResponseBody
+	public AjaxJson updateFieldConfig(HttpServletRequest request) {
+		String[] ids = request.getParameterValues("ids[]");
+		for(int i=0; i<ids.length; i++) {
+			FieldConfigEntity fieldConfigEntity = new FieldConfigEntity();
+			fieldConfigEntity = systemService.getEntity(FieldConfigEntity.class, ids[i]);
+			fieldConfigEntity.setState(2);
+			systemService.saveOrUpdate(fieldConfigEntity);
+		}
+		AjaxJson ajaxJson = new AjaxJson();
+		ajaxJson.setMsg("设置成功");
+		return ajaxJson;
+	}
+
+	/**
 	 * easyui AJAX请求数据
 	 * 
 	 * @param request
 	 * @param response
 	 * @param dataGrid
-	 * @param user
 	 */
 
 	@RequestMapping(params = "datagrid")
@@ -197,7 +222,6 @@ public class BmB003Controller extends BaseController {
 	/**
 	 * 添加小区信息表
 	 * 
-	 * @param ids
 	 * @return
 	 */
 	@RequestMapping(params = "doAdd")
@@ -221,7 +245,6 @@ public class BmB003Controller extends BaseController {
 	/**
 	 * 更新小区信息表
 	 * 
-	 * @param ids
 	 * @return
 	 */
 	@RequestMapping(params = "doUpdate")
