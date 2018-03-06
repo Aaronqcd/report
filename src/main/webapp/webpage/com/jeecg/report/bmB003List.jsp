@@ -48,76 +48,14 @@
  <script src = "webpage/com/jeecg/report/bmB003List.js"></script>		
  <script type="text/javascript">
  $(document).ready(function(){
-     //$("#demoform").hide();
-     /*$('#fieldConfig').dialog({
-         title: 'My Dialog',
-         width: 1000,
-         height: 600,
-         closed: false,
-         cache: false,
-         //href: 'bmB003Controller.do?fieldConfig',
-         content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%;'></iframe>",
-         modal: true
-     });
-     $('#fieldConfig').dialog('open');*/
  });
- /*var demo1 = $('.demo').bootstrapDualListbox();
- $("#demoform").submit(function() {
-     alert($('[name="duallistbox_demo1[]"]').val());
-     return false;
- });*/
- 
-   /*function fieldConfig() {
-       //var selected = $("#ID").textbox("getValue");
-       var single = true;
-
-       var dia = $.easyui.showSelector.dblDatagrid({
-           title: "测试选择",
-           width: 600,
-           height: 400,
-           onEnter: function (row) {
-               fill(row);
-           },
-           extToolbar: false,
-           //selected: selected,
-           datagridOptions: {
-               singleSelect: single,
-               method: "get",
-               url: "datagrid-selector-data.json",
-               idField: 'ID',
-               columns: [[
-                   { field: 'ID', title: '工号', width: 90 },
-                   { field: 'RealName', title: '姓名', width: 90 }
-               ]]
-           }
-       });
-   }*/
  function fieldConfig() {
-     //$("#demoform").show();
-     /*$("#fieldConfig").dialog({
-         title: '批量处理',
-         id:'batchProcessing',
-         width: 920,
-         height: 'auto',
-         top:300,
-         closed: false,
-         inline:false,
-         loadingMessage: '正在加载...',
-         cache: false,
-         href :'fieldConfig.jsp',
-         modal: true,
-         onClose : function() {
-             $(this).dialog('destroy');
-             mmg.load();
-         },
-     });*/
      $(this).dialog({
-         title: 'My Dialog',
+         title: '数据列选择器',
          width: 800,
          height: 600,
          closed: false,
          cache: false,
-         //href: 'bmB003Controller.do?fieldConfig',
          content:"<iframe scrolling='auto' frameborder='0' src='bmB003Controller.do?fieldConfig' style='width:100%; height:100%;'></iframe>",
          modal: true
      });

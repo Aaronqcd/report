@@ -11,25 +11,12 @@
             width: 50%;
             float: left;
         }
-        /*.ui_content {
-            width: 100%;
-        }*/
     </style>
 </head>
 <body>
     <div>
         <form id="demoform" action="#" method="post">
             <select multiple="multiple" size="20" name="duallistbox_demo1[]" class="demo">
-                <%--<option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3" selected="selected">Option 3</option>
-                <option value="option4">Option 4</option>
-                <option value="option5">Option 5</option>
-                <option value="option6" selected="selected">Option 6</option>
-                <option value="option7">Option 7</option>
-                <option value="option8">Option 8</option>
-                <option value="option9">Option 9</option>
-                <option value="option0">Option 10</option>--%>
             </select>
             <br>
             <button type="submit" class="btn btn-default btn-block">Submit data</button>
@@ -42,8 +29,6 @@
         });
         var demo1 = $('.demo').bootstrapDualListbox();
         $("#demoform").submit(function() {
-            /*alert($('[name="duallistbox_demo1[]"]').val());
-            return false;*/
             $.ajax({
                 type: "POST",
                 url: "${pageContext.request.contextPath}/bmB003Controller.do?updateFieldConfig",
